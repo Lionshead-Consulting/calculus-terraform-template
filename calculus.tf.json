@@ -1,0 +1,48 @@
+{
+  "provider": {
+    "aws": {
+      "region": "${var.region}"
+    }
+  },
+  "resource": [
+    {
+      "aws_lambda_function": {
+        "calculus_generated_function": {
+          "function_name": "%FunctionName%",
+          "role": "arn:aws:iam::348102451022:role/lambda_bae_execution",
+          "runtime": "nodejs6.10",
+          "s3_bucket": "%Bucket%",
+          "s3_key": "%FunctionName%.zip",
+          "handler": "index.handler",
+          "publish": true,
+
+          "environment": {
+            "variables": {
+              "NODE_ENV": "%NODE_ENV%"
+            }
+          }
+        }
+      }
+    },
+    {
+      "aws_lambda_alias": {
+        "test_alias": {
+          "name": "test",
+          "description": "",
+          "function_name": "${aws_lambda_function.calculus_generated_function.arn}",
+          "function_version": "$LATEST"
+        }
+      }
+    },
+    {
+      "aws_lambda_alias": {
+        "prod_alias": {
+          "name": "prod",
+          "description": "",
+          "function_name": "${aws_lambda_function.calculus_generated_function.arn}",
+          "function_version": "$LATEST"
+        }
+      }
+    }
+  ]
+}
