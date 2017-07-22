@@ -23,26 +23,6 @@
           }
         }
       }
-    },
-    {
-      "aws_lambda_alias": {
-        "test_alias": {
-          "name": "test",
-          "description": "",
-          "function_name": "${aws_lambda_function.calculus_generated_function.arn}",
-          "function_version": "$LATEST"
-        }
-      }
-    },
-    {
-      "aws_lambda_alias": {
-        "prod_alias": {
-          "name": "prod",
-          "description": "",
-          "function_name": "${aws_lambda_function.calculus_generated_function.arn}",
-          "function_version": "$LATEST"
-        }
-      }
     }
   ]
 }
