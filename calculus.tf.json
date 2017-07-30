@@ -9,13 +9,14 @@
       "aws_lambda_function": {
         "calculus_generated_function": {
           "function_name": "%FunctionName%",
-          "role": "arn:aws:iam::348102451022:role/lambda_bae_execution",
+          "role": "${var.role}",
           "runtime": "nodejs6.10",
           "s3_bucket": "%Bucket%",
           "s3_key": "%FunctionName%.zip",
           "handler": "index.handler",
           "publish": true,
-
+          "memory_size": "${var.memory_size}",
+          "timeout": "${var.timeout}",
           "environment": {
             "variables": {
               "NODE_ENV": "%NODE_ENV%"
