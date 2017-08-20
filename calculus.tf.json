@@ -13,6 +13,7 @@
           "runtime": "nodejs6.10",
           "s3_bucket": "%Bucket%",
           "s3_key": "%FunctionName%.zip",
+          "source_code_hash":"${base64sha256(file(\"../%FunctionName%.zip\"))}",
           "handler": "index.handler",
           "publish": true,
           "memory_size": "${var.memory_size}",
