@@ -17,3 +17,7 @@ variable "memory_size" {
 variable "timeout" {
   default = 300
 }
+
+variable "NODE_ENV" {
+  description = "NODE_ENV environment variable"
+}

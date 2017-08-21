@@ -30,7 +30,7 @@
           "timeout": "${var.timeout}",
           "environment": {
             "variables": {
-              "NODE_ENV": "%NODE_ENV%"
+              "NODE_ENV": "${var.NODE_ENV}"
             }
           }
         }
