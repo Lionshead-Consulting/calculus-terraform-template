@@ -8,9 +8,9 @@
     {
         "backend": [{
             "s3": {
-                "bucket": "${var.bucket}",
+                "bucket": "%Bucket%",
                 "key": "%FunctionName%.tfstate",
-                "region": "${var.region}"
+                "region": "%Region%"
             }
         }]
     }
