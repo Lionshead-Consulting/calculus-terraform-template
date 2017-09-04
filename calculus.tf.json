@@ -17,6 +17,16 @@
   ],
   "resource": [
     {
+      "random_id": {
+        "fnUID": {
+          "keepers": {
+            "env": "${var.NODE_ENV}"
+          },
+          "byte_length": 8
+        }
+      }
+    },
+    {
       "aws_s3_bucket_object": {
         "fnS3": {
           "key": "%FunctionName%.zip",
@@ -34,8 +44,7 @@
           "runtime": "nodejs6.10",
           "s3_bucket": "%Bucket%",
           "s3_key": "%FunctionName%.zip",
-          "s3_object_version": "${aws_s3_bucket_object.fnS3.version_id}",
-          "depends_on": ["aws_s3_bucket_object.fnS3"],
+          "source_code_hash": "${base64sha256(file(\"../%FunctionName%.zip\"))}-${random_id.fnUID.hex}",
           "handler": "index.handler",
           "publish": true,
           "memory_size": "${var.memory_size}",
