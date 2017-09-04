@@ -46,46 +46,6 @@
           }
         }
       }
-    },
-    {
-      "aws_lambda_alias": {
-        "dev_alias": {
-          "name": "dev",
-          "description": "Development environment",
-          "function_name": "${aws_lambda_function.calculus_generated_function.arn}",
-          "function_version": "$LATEST"
-        }
-      }
-    },
-    {
-      "aws_lambda_alias": {
-        "qa_alias": {
-          "name": "QA",
-          "description": "QA environment",
-          "function_name": "${aws_lambda_function.calculus_generated_function.arn}",
-          "function_version": "$LATEST"
-        }
-      }
-    },
-    {
-      "aws_lambda_alias": {
-        "preprod_alias": {
-          "name": "preprod",
-          "description": "PreProd environment",
-          "function_name": "${aws_lambda_function.calculus_generated_function.arn}",
-          "function_version": "$LATEST"
-        }
-      }
-    },
-    {
-      "aws_lambda_alias": {
-        "prod_alias": {
-          "name": "prod",
-          "description": "Production environment",
-          "function_name": "${aws_lambda_function.calculus_generated_function.arn}",
-          "function_version": "$LATEST"
-        }
-      }
     }
   ]
 }
