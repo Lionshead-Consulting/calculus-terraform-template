@@ -35,7 +35,7 @@
           "s3_bucket": "%Bucket%",
           "s3_key": "%FunctionName%.zip",
           "s3_object_version": "${aws_s3_bucket_object.fnS3.version_id}",
-          "source_code_hash": "${base64sha256(file(\"../%FunctionName%.zip\"))}",
+          "depends_on": ["aws_s3_bucket_object.fnS3"],
           "handler": "index.handler",
           "publish": true,
           "memory_size": "${var.memory_size}",
